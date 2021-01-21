@@ -19,6 +19,12 @@ rawdraw.exe : rawdraw.c
 rawdrawogl.exe : rawdraw.c
 	$(MINGW32)gcc -g -m32 -o $@ $^  -lgdi32 -DCNFGOGL -lopengl32
 
+simple.exe : simple.c
+	$(MINGW32)gcc -g -m32 -o $@ $^  -lgdi32
+
+simpleogl.exe : simple.c
+	$(MINGW32)gcc -g -m32 -o $@ $^  -lgdi32 -DCNFGOGL -lopengl32
+
 rawdraw_egl : rawdraw.c
 	gcc -o $@ $^ -lMali -lpthread -lm -O3
 
@@ -41,5 +47,5 @@ ogltest.exe : ogltest.c CNFG.c
 	$(MINGW32)gcc -o $@ $^ -lgdi32 -lkernel32 -lopengl32 -DCNFGOGL -lm
 
 clean : 
-	rm -rf *.o *~ rawdraw.exe rawdrawogl.exe rawdraw rawdraw_ogl rawdraw_mac rawdraw_mac_soft rawdraw_mac_cg rawdraw_mac_ogl ogltest ogltest.exe rawdraw_egl
+	rm -rf *.o *~ *.exe rawdraw rawdraw_ogl rawdraw_mac rawdraw_mac_soft rawdraw_mac_cg rawdraw_mac_ogl ogltest rawdraw_egl simple
 

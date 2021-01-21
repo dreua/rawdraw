@@ -2,7 +2,7 @@
 #define CNFG_IMPLEMENTATION
 
 //Optional: Use OpenGL to do rendering on appropriate systems.
-#define CNFGOGL
+//#define CNFGOGL // Better to compile with -DCNFGOGL, see Makefile
 
 #include "CNFG.h"
 
