@@ -140,6 +140,17 @@ LRESULT CALLBACK MyWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hwnd, msg, wParam, lParam);
 }
 
+#ifdef CNFGOGL
+void CNFGCheckOgl() {
+	const char* version = glGetString(GL_VERSION);
+	if (!version) {
+		printf("Error loading OpenGL. Try compiling without CNFGOGL.\n");
+		exit(1);
+	}
+	printf("OpenGL runtime: %s\n", version);
+}
+#endif
+
 //This was from the article, too... well, mostly.
 int CNFGSetup( const char * name_of_window, int width, int height )
 {
@@ -221,6 +232,8 @@ int CNFGSetup( const char * name_of_window, int width, int height )
 		MessageBox( 0, "Could not current OpenGL Context\n", 0, 0 );
 		exit( -1 );
 	}
+	
+	CNFGCheckOgl();
 #endif
 
 	lsHDC = CreateCompatibleDC( lsWindowHDC );

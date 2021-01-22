@@ -106,6 +106,11 @@ void CNFGInternalResize( short x, short y ); //don't call this.
 #ifdef CNFGOGL
 void   CNFGSetVSync( int vson );
 void * CNFGGetExtension( const char * extname );
+
+// Call this after basic OpenGL setup before trying to create shaders 
+// to check OGL runtime is available.
+// Prints Ogl version if present and exits with error message otherwise.
+void   CNFGCheckOgl();
 #endif
 
 //Also not available on all systems.  Transparency.
